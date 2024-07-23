@@ -50,6 +50,6 @@ def predict(i, m):
     result = m.predict(test_generator, steps=1, verbose=1)
     return result
 
-results = np.zeros(shape=(17, 256, 256, 1))
-for i in range(17): # As we have 17 test images
-    results[i, :, :, :] = predict(i, m) # Predicts the segmentation labels on images in test2 directory. See utils.py for more details
+# results = np.zeros(shape=(17, 256, 256, 1))
+# for i in range(17): # As we have 17 test images
+#     results[i, :, :, :] = predict(i, m) # Predicts the segmentation labels on images in test2 directory. See utils.py for more details

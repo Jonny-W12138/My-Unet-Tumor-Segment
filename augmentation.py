@@ -1,7 +1,6 @@
 #### 'augmentation.py' module is used to perform Data Augmentation and/or return a Generator used in 
-#### 'model.fit_generator()' and 'model.evaluate_generator()'
+from keras.src.legacy.preprocessing.image import ImageDataGenerator
 
-from keras.preprocessing.image import ImageDataGenerator
 
 def train_data_aug(canny=False):
     """Peforms real-time Data Augmentation on the Training dataset used in 'model.fit_generator()'

@@ -8,6 +8,39 @@ from PIL import Image
 from keras import backend as K
 
 def training_history_plot(results):
+    """Plots "training curve" for the network/model for metrics listed below:
+            1. Dice loss
+            2. Pixel-wise accuracy
+            3. Intersection Over Union(IOU)
+            4. F1 score
+            5. Recall
+            6. Precision
+
+    Args:
+        results (History): Output of 'model.fit()', 'History.history' attribute is a record of metrics
+                            values as described above(from 1-6)
+
+    Returns:
+        None
+    """
+    titles = ['Dice Loss', 'Accuracy', 'IOU', 'F1', 'Recall', 'Precision']
+    metrics = ['dice_loss', 'accuracy', 'mean_io_u', 'f1_score', 'recall', 'precision'] # Metrics we're keeping track off
+
+    # Define specification of our plot
+    fig, axs = plt.subplots(3, 2, figsize=(15, 15), facecolor='w', edgecolor='k')
+    fig.subplots_adjust(hspace = 0.5, wspace=0.2)
+    axs = axs.ravel()
+
+    for i in range(6):
+        axs[i].plot(results.history[metrics[i]]) # Calls from 'History.history'- 'metrics[i]', note 'results' is
+        axs[i].set_title(titles[i])                # a 'History' object
+        axs[i].set_xlabel('epoch')
+        axs[i].set_ylabel(metrics[i])
+        axs[i].legend(['train'], loc='upper left')
+
+    plt.show()
+
+def training_history_plot_old(results):
 	"""Plots "training curve" for the network/model for metrics listed below:
     		1. Dice loss
     		2. Pixel-wise accuracy 
@@ -24,7 +57,7 @@ def training_history_plot(results):
         None
 	"""
 	titles = ['Dice Loss','Accuracy','IOU','F1','Recall','Precision'] 
-	metric = ['loss', 'acc', 'iou','F1','recall','precision'] # Metrics we're keeping track off
+	metric = ['loss', 'accuracy', 'iou','F1','recall','precision'] # Metrics we're keeping track off
 
 	# Define specification of our plot
 	fig, axs = plt.subplots(3,2, figsize=(15, 15), facecolor='w', edgecolor='k')

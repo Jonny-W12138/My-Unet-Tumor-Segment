@@ -24,7 +24,8 @@ def training_history_plot(results):
         None
     """
     titles = ['Dice Loss', 'Accuracy', 'IOU', 'F1', 'Recall', 'Precision']
-    metrics = ['dice_loss', 'accuracy', 'mean_io_u', 'f1_score', 'recall', 'precision'] # Metrics we're keeping track off
+    # metrics = ['dice_loss', 'accuracy', 'mean_io_u', 'f1_score', 'recall', 'precision'] # Metrics we're keeping track off
+    metrics = ['loss', 'accuracy', 'mean_io_u', 'f1_score', 'recall', 'precision'] # Metrics we're keeping track off
 
     # Define specification of our plot
     fig, axs = plt.subplots(3, 2, figsize=(15, 15), facecolor='w', edgecolor='k')

@@ -1,6 +1,7 @@
 #### 'utils.py' module is used to predict Segmentation mask for images in Test ie 'test2' dataset 
 
 from keras.src.legacy.preprocessing.image import ImageDataGenerator
+import numpy as np
 
 
 # def predict(i, m):
